@@ -15,4 +15,15 @@ describe('Swiper Gallery Test', function () {
     cy.wait(2000);
     cy.get('.swiper-slide-active').should('contain', 'Paris');
   });
+
+  describe('Navigation Test', function () {
+    it('Checks if user can navigate slides using buttons', function () {
+      cy.visit('http://localhost:3000');
+      cy.get('.swiper-button-next').click();
+      cy.get('.swiper-slide-active').should('exist');
+      cy.get('.swiper-button-prev').click();
+      cy.get('.swiper-slide-active').should('exist');
+    });
+  });
+    
 });
